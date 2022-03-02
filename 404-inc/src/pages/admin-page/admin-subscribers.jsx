@@ -1,59 +1,99 @@
-import * as React from 'react';
-// import Link from '@mui/material/Link';
+import React, { useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { useState, useEffect } from 'react';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import { Box, IconButton, TablePagination } from '@mui/material';
 import SubscriberService from '../../services/subscriber-service';
-
-// Generate Order Data
-// function createData(id, date, name, shipTo, paymentMethod, amount) {
-//   return {
-//     id, date, name, shipTo, paymentMethod, amount,
-//   };
-
-// function preventDefault(event) {
-//   event.preventDefault();
-// }
 
 const Subscribers = () => {
   const [subscribers, setSubscribers] = useState();
   const [loading, setLoading] = useState(false);
-  // const [subscriberCount, setSubscriberCount] = useState();
-  useEffect(() => {
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [tablePage, setTablePage] = useState(0);
+  const [subscriberCount, setSubscriberCount] = useState(0);
+  const [tableOrder, setTableOrder] = useState(1);
+
+  const getSubscribers = async (page, limit, order) => {
     setLoading(true);
-    (async () => {
-      const res = await SubscriberService.getSubscribers();
-      setSubscribers(res.subscribers);
-      // setSubscriberCount(res.subscriberCount);
-      setLoading(false);
-    })();
+    const res = await SubscriberService.getSubscribers(page + 1, limit, order);
+    setSubscribers(res.subscribers);
+    setSubscriberCount(res.subscriberCount);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getSubscribers(tablePage, rowsPerPage, tableOrder);
   }, []);
 
+  useEffect(() => {
+    getSubscribers(tablePage, rowsPerPage, tableOrder);
+  }, [tablePage, rowsPerPage, tableOrder]);
+
+  const handleOrderChange = () => setTableOrder(tableOrder * -1);
+
+  const handleChangePage = (_, newPage) => {
+    setLoading(true);
+    setTablePage(newPage);
+    // getSubscribers(tablePage, rowsPerPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setLoading(true);
+    setTablePage(0);
+    setRowsPerPage(parseInt(event.target.value, 10));
+    // getSubscribers(tablePage, rowsPerPage);
+  };
+
   return (
-    <Table
-      size="small"
-      sx={{ alignItems: 'center' }}
-    >
-      <TableHead>
-        <TableRow>
-          <TableCell>Subscribers</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        { !loading && subscribers ? subscribers.map((row) => (
-          <TableRow key={row.id}>
-            <TableCell>{row.email}</TableCell>
+    <Box>
+      <Table
+        size="small"
+        sx={{ alignItems: 'center' }}
+        square="true"
+      >
+        <TableHead>
+          <TableRow>
+            <TableCell>Subscribers</TableCell>
+            <TableCell align="right">
+              Created At
+              <IconButton onClick={handleOrderChange}>
+                {
+                  tableOrder === 1
+                    ? <ArrowDropUpIcon />
+                    : <ArrowDropDownIcon />
+                }
+              </IconButton>
+            </TableCell>
           </TableRow>
-        )) : (
-          <TableRow key="Still Loading">
-            <TableCell>Still Loading</TableCell>
-          </TableRow>
-        )}
-      </TableBody>
-    </Table>
+        </TableHead>
+        <TableBody>
+          { !loading && subscribers ? subscribers.map((row) => (
+            <TableRow key={row.id}>
+              <TableCell>{row.email}</TableCell>
+              <TableCell>{row.createdAt}</TableCell>
+            </TableRow>
+          )) : (
+            <TableRow key="Still Loading">
+              <TableCell>Still Loading</TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+      <TablePagination
+        rowsPerPageOptions={[5, 10]}
+        component="div"
+        count={subscriberCount}
+        rowsPerPage={rowsPerPage}
+        page={tablePage}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+        labelRowsPerPage="Subscribers per page:"
+      />
+    </Box>
   );
 };
 export default Subscribers;

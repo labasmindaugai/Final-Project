@@ -18,9 +18,9 @@ const SubscriberService = new (class SubscriberService {
     }
   }
 
-  async getSubscribers() {
+  async getSubscribers(page, limit, order) {
     try {
-      const { data } = await this.requester.get('/');
+      const { data } = await this.requester.get('/', { params: { page, limit, order } });
       return data;
     } catch (error) {
       return error.message;

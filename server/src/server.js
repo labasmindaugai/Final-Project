@@ -7,6 +7,7 @@ const authRouter = require('./routes/auth-router');
 const userRouter = require('./routes/user-router');
 const imageRouter = require('./routes/image-router');
 const subscriberRouter = require('./routes/subscriber-router');
+// const mongoosePaginate = require('mongoose-paginate');
 
 const server = express();
 const {
