@@ -53,7 +53,6 @@ const Subscribers = () => {
       <Table
         size="small"
         sx={{ alignItems: 'center' }}
-        square="true"
       >
         <TableHead>
           <TableRow>
