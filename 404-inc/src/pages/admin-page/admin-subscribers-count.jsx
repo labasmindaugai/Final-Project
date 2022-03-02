@@ -26,7 +26,7 @@ const SubscribersCount = () => {
       <Typography>
         Subscribers Count
       </Typography>
-      <Typography sx={{ fontSize: '8rem' }}>
+      <Typography sx={{ fontSize: '10.27rem' }}>
         {!loading && subscriberCount}
       </Typography>
     </Box>
