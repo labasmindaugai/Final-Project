@@ -13,8 +13,10 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { List } from '@mui/material';
 import Subscribers from './admin-subscribers';
 import SubscribersCount from './admin-subscribers-count';
+import { mainListItems, secondaryListItems } from './admin-drawer-list';
 
 const drawerWidth = 240;
 
@@ -117,6 +119,11 @@ const AdminDashboard = () => {
             </IconButton>
           </Toolbar>
           <Divider />
+          <List component="nav">
+            {mainListItems}
+            <Divider sx={{ my: 1 }} />
+            {secondaryListItems}
+          </List>
         </Drawer>
         <Box
           component="main"
