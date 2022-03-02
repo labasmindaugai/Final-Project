@@ -13,10 +13,14 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { List } from '@mui/material';
+import {
+  List, ListItemButton, ListItemIcon, ListItemText,
+} from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 import Subscribers from './admin-subscribers';
 import SubscribersCount from './admin-subscribers-count';
-import { mainListItems, secondaryListItems } from './admin-drawer-list';
+import mainListItems from './admin-drawer-list';
+import AuthService from '../../services/auth-service';
 
 const drawerWidth = 240;
 
@@ -71,6 +75,9 @@ const AdminDashboard = () => {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+  const handleLogout = () => {
+    AuthService.logout();
+  };
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -122,7 +129,12 @@ const AdminDashboard = () => {
           <List component="nav">
             {mainListItems}
             <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+            <ListItemButton onClick={handleLogout}>
+              <ListItemIcon>
+                <LogoutIcon />
+              </ListItemIcon>
+              <ListItemText primary="Log Out" />
+            </ListItemButton>
           </List>
         </Drawer>
         <Box

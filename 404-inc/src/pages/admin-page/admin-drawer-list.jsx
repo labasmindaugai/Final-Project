@@ -5,10 +5,10 @@ import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
-import LogoutIcon from '@mui/icons-material/Logout';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { NavLink } from 'react-router-dom';
 
-export const mainListItems = (
+const mainListItems = (
   <>
     <ListSubheader component="div" inset>
       Data
@@ -25,25 +25,15 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Images" />
     </ListItemButton>
+    <NavLink to="/" style={{ textDecoration: 'none', color: 'black' }}>
+      <ListItemButton>
+        <ListItemIcon>
+          <ArrowForwardIcon />
+        </ListItemIcon>
+        <ListItemText primary="Go to Main" />
+      </ListItemButton>
+    </NavLink>
   </>
 );
 
-export const secondaryListItems = (
-  <>
-    <ListSubheader component="div" inset>
-      Navigation
-    </ListSubheader>
-    <ListItemButton>
-      <ListItemIcon>
-        <ArrowForwardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Go to Main" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <LogoutIcon />
-      </ListItemIcon>
-      <ListItemText primary="Log Out" />
-    </ListItemButton>
-  </>
-);
+export default mainListItems;
