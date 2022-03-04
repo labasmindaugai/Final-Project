@@ -9,10 +9,8 @@ const sectionRouter = require('./routes/section-router');
 const subscriberRouter = require('./routes/subscriber-router');
 
 const server = express();
-const {
-  SERVER_PORT,
-  DB_CONNECTION,
-} = process.env;
+const { SERVER_PORT, DB_CONNECTION, SERVER_DOMAIN, PUBLIC_PATH } = process.env;
+
 
 const corsOptions = {
   origin: 'http://localhost:3000',
@@ -24,6 +22,7 @@ const corsOptions = {
 server.use(morgan('tiny'));
 server.use(cors(corsOptions));
 server.use(express.json());
+server.use(express.static(PUBLIC_PATH));
 
 // Response handlers
 server.use('/api/auth', authRouter);
@@ -32,7 +31,7 @@ server.use('/api/sections', sectionRouter);
 server.use('/api/subscriber', subscriberRouter);
 
 server.listen(SERVER_PORT, () => {
-  console.log(`puslapis veikia ant http://localhost:${SERVER_PORT}/`);
+  console.log(`puslapis veikia ant ${SERVER_DOMAIN}:${SERVER_PORT}/`);
   (async () => {
     try {
       await Mongoose.connect(DB_CONNECTION);

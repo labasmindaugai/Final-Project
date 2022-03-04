@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import axios from 'axios';
 import AuthService from './auth-service';
 
@@ -5,7 +6,7 @@ const SectionService = new (class SectionService {
   static validateToken() {
     const token = AuthService.getToken();
     if (!token) {
-      throw new Error('Can not get user images without authentication');
+      throw new Error('Need authentication');
     }
 
     return token;
@@ -18,10 +19,31 @@ const SectionService = new (class SectionService {
     });
   }
 
+  async getSections() {
+    try {
+      const response = await this.requester.get('/');
+      console.log(response);
+      const result = response.data;
+      return result;
+    } catch (args) {
+      console.log(args);
+      throw new Error(args);
+    }
+  }
+
   async createSection(body) {
     const token = SectionService.validateToken();
+    const {
+      image, title, description, section,
+    } = body;
+    // const data = rest;
+    const formData = new FormData();
+    formData.append('files', image[0]);
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('section', section);
     try {
-      const response = await this.requester.post('/create', body, {
+      const response = await this.requester.post('/create', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -29,7 +51,7 @@ const SectionService = new (class SectionService {
       const result = response.data;
       return result;
     } catch (error) {
-      throw new Error(error.response.data.message);
+      throw new Error(error);
     }
   }
 })();

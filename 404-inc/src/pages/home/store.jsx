@@ -8,7 +8,7 @@ import pulse from '../../components/animations/pulse';
 import LightButton from '../../components/buttons/button';
 import BasicModal from '../../components/modals/modal';
 
-const Store = () => {
+const Store = ({ loading, sections }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -39,23 +39,25 @@ const Store = () => {
               width: '65%',
             }}
             >
-              <Typography
-                variant="h6"
-                component="h2"
-                sx={{
-                  pb: '2px',
-                  fontSize: {
-                    xs: '3.5vw',
-                    sm: '3vw',
-                    md: '1.7vw',
-                    lg: '1.2vw',
-                  },
-                  lineHeight: '.9',
-                  letterSpacing: '2px',
-                }}
-              >
-                WHAT IS 127.0.0.1?
-              </Typography>
+              { !loading ? (
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  sx={{
+                    pb: '2px',
+                    fontSize: {
+                      xs: '3.5vw',
+                      sm: '3vw',
+                      md: '1.7vw',
+                      lg: '1.2vw',
+                    },
+                    lineHeight: '.9',
+                    letterSpacing: '2px',
+                  }}
+                >
+                  { sections ? sections[0].title : 'WHAT IS 127.0.0.1?'}
+                </Typography>
+              ) : null}
             </Box>
             <Box sx={{
               width: '63%',
@@ -130,7 +132,7 @@ const Store = () => {
               }}
               >
                 <img
-                  src={Hoodie}
+                  src={sections ? sections[0].image : Hoodie}
                   alt="Hoodie"
                   width="100%"
                 />
