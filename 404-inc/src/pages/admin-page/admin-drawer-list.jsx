@@ -11,14 +11,16 @@ import { NavLink } from 'react-router-dom';
 const mainListItems = (
   <>
     <ListSubheader component="div" inset>
-      Data
+      Raw Data
     </ListSubheader>
-    <ListItemButton>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Subscribers" />
-    </ListItemButton>
+    <NavLink to="/dashboard/subscribers" style={{ textDecoration: 'none', color: 'black' }}>
+      <ListItemButton>
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+        <ListItemText primary="Subscribers" />
+      </ListItemButton>
+    </NavLink>
     <ListItemButton>
       <ListItemIcon>
         <DashboardIcon />

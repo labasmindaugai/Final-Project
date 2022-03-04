@@ -27,6 +27,11 @@ const routeStructure = [
     pageName: 'AdminDashboard',
     auth: ADMIN,
   },
+  {
+    path: '/dashboard/subscribers',
+    pageName: 'Subscribers',
+    auth: ADMIN,
+  },
   // {
   //   path: '/dashboard',
   //   pageName: 'DashboardLayout',

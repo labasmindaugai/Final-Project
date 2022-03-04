@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import ReactPlayer from 'react-player';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
@@ -21,6 +22,7 @@ import Subscribers from './admin-subscribers';
 import SubscribersCount from './admin-subscribers-count';
 import mainListItems from './admin-drawer-list';
 import AuthService from '../../services/auth-service';
+import Sections from './admin-sections';
 
 const drawerWidth = 240;
 
@@ -171,6 +173,17 @@ const AdminDashboard = () => {
                   }}
                 >
                   <Subscribers />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={8} lg={12}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
+                >
+                  <Sections />
                 </Paper>
               </Grid>
             </Grid>

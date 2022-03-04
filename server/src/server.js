@@ -4,8 +4,8 @@ const Mongoose = require('mongoose');
 require('dotenv').config();
 const cors = require('cors');
 const authRouter = require('./routes/auth-router');
-const userRouter = require('./routes/user-router');
-const imageRouter = require('./routes/image-router');
+// const userRouter = require('./routes/user-router');
+const sectionRouter = require('./routes/section-router');
 const subscriberRouter = require('./routes/subscriber-router');
 
 const server = express();
@@ -27,8 +27,8 @@ server.use(express.json());
 
 // Response handlers
 server.use('/api/auth', authRouter);
-server.use('/api/users', userRouter);
-server.use('/api/images', imageRouter);
+// server.use('/api/users', userRouter);
+server.use('/api/sections', sectionRouter);
 server.use('/api/subscriber', subscriberRouter);
 
 server.listen(SERVER_PORT, () => {
