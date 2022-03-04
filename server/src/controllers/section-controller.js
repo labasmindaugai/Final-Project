@@ -26,13 +26,14 @@ const createSection = async (req, res) => {
 };
 
 const updateSection = async (req, res) => {
+  const { section } = req.body;
   try {
     const { filename } = req.file;
-    await SectionModel.updateOne({
+    await SectionModel.findOneAndUpdate({ section },{
       title: req.body.title, section: req.body.section, description: req.body.description, image: filename,
-    });
+    },{ new: false });
   res.status(200).json({
-    message: 'All user images fetched',
+    message: 'Section updated',
   });
 } catch(error) {
   res.status(400).json({ error, mesage: error.message});

@@ -27,7 +27,7 @@ const initialValues = {
   description: '',
 };
 
-const Sections = () => {
+const Update = () => {
   const [error, setError] = useState(null);
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -45,8 +45,9 @@ const Sections = () => {
   const onSubmit = async ({
     title, section, description,
   }) => {
+    console.log('bananas');
     try {
-      await SectionService.createSection({
+      await SectionService.updateSection({
         title, section, description, image,
       });
     } catch (err) {
@@ -78,7 +79,7 @@ const Sections = () => {
           <img src={_sections[0].image} alt="Italian Trulli" />
         </>
       ) : null} */}
-      <Typography variant="h4" sx={{ mb: 2 }}>Image Upload</Typography>
+      <Typography variant="h4" sx={{ mb: 2 }}>Section Update</Typography>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
         <TextField
           name="title"
@@ -124,11 +125,11 @@ const Sections = () => {
           color="primary"
           sx={{ my: 1 }}
         >
-          Upload Image
+          Update Section
         </Button>
       </Box>
     </Box>
   );
 };
 
-export default Sections;
+export default Update;

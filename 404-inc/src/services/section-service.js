@@ -22,7 +22,7 @@ const SectionService = new (class SectionService {
   async getSections() {
     try {
       const response = await this.requester.get('/');
-      console.log(response);
+      // console.log(response);
       const result = response.data;
       return result;
     } catch (args) {
@@ -44,6 +44,30 @@ const SectionService = new (class SectionService {
     formData.append('section', section);
     try {
       const response = await this.requester.post('/create', formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const result = response.data;
+      return result;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async updateSection(body) {
+    const token = SectionService.validateToken();
+    const {
+      image, title, description, section,
+    } = body;
+    // const data = rest;
+    const formData = new FormData();
+    formData.append('files', image[0]);
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('section', section);
+    try {
+      const response = await this.requester.patch('/update', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
