@@ -38,14 +38,12 @@ const Subscribers = () => {
   const handleChangePage = (_, newPage) => {
     setLoading(true);
     setTablePage(newPage);
-    // getSubscribers(tablePage, rowsPerPage);
   };
 
   const handleChangeRowsPerPage = (event) => {
     setLoading(true);
     setTablePage(0);
     setRowsPerPage(parseInt(event.target.value, 10));
-    // getSubscribers(tablePage, rowsPerPage);
   };
 
   return (
