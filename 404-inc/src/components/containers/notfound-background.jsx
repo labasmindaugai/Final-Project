@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import NotFound from '../images/nerasta.jpg';
+import NotFound from '../images/notfound.jpg';
 
 const NotFoundBackground = ({ children, sx }) => (
   <Box

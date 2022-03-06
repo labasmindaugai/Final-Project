@@ -12,7 +12,7 @@ import { login } from '../../store/auth';
 import AuthForm from '../../components/auth-form';
 import AuthService from '../../services/auth-service';
 import StyledTextField from '../../components/textfields/styled-textfield';
-import Welcome from '../../components/images/shop.gif';
+import Welcome from '../../components/images/login.gif';
 
 const validationSchema = yup.object({
   email: yup.string()
