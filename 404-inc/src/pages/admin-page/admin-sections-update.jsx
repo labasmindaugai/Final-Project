@@ -45,7 +45,6 @@ const Update = () => {
   const onSubmit = async ({
     title, section, description,
   }) => {
-    console.log('bananas');
     try {
       await SectionService.updateSection({
         title, section, description, image,
@@ -73,12 +72,6 @@ const Update = () => {
 
   return (
     <Box component="form" sx={{ p: 3 }} onSubmit={handleSubmit}>
-      {/* { !loading && _sections ? (
-        <>
-          <p>{_sections[0].title}</p>
-          <img src={_sections[0].image} alt="Italian Trulli" />
-        </>
-      ) : null} */}
       <Typography variant="h4" sx={{ mb: 2 }}>Section Update</Typography>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
         <TextField
