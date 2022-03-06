@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import StyledCheckTypography from './styled-text';
-import StyledCheckTextfield from './styled-text-field';
+import StyledCheckTypography from '../../components/texts/styled-checkout-text';
+import StyledCheckTextfield from '../../components/textfields/styled-checkout-text-field';
 
 const CheckoutPageAddressForm = () => (
   <>

@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import axios from 'axios';
 import AuthService from './auth-service';
 
@@ -22,7 +21,6 @@ const SectionService = new (class SectionService {
   async getSections() {
     try {
       const response = await this.requester.get('/');
-      // console.log(response);
       const result = response.data;
       return result;
     } catch (args) {
@@ -36,7 +34,6 @@ const SectionService = new (class SectionService {
     const {
       image, title, description, section,
     } = body;
-    // const data = rest;
     const formData = new FormData();
     formData.append('files', image[0]);
     formData.append('title', title);
@@ -60,7 +57,6 @@ const SectionService = new (class SectionService {
     const {
       image, title, description, section,
     } = body;
-    // const data = rest;
     const formData = new FormData();
     formData.append('files', image[0]);
     formData.append('title', title);

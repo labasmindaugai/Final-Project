@@ -11,7 +11,7 @@ import { styled } from '@mui/material';
 import AddressForm from './checkout-page-address-form';
 import PaymentForm from './checkout-page-payment-form';
 import Review from './checkout-page-review';
-import StyledCheckTypography from './styled-text';
+import StyledCheckTypography from '../../components/texts/styled-checkout-text';
 
 const steps = ['Adress', 'Payment', 'Review'];
 

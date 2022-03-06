@@ -5,7 +5,7 @@ const getSections = async (_, res) => {
   try {
   const sectionDocs = await SectionModel.find();
   const sections = sectionDocs.map((sectionDoc) => new SectionViewModel(sectionDoc));
-  res.status(200).json({ sections, message: 'bananas' });
+  res.status(200).json({ sections, message: 'Uploaded' });
 } catch(error) {
   res.status(400).json({ error });
 };

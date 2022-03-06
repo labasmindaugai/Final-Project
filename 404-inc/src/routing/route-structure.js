@@ -1,5 +1,4 @@
 import {
-//   AUTH,
   ADMIN,
   PUBLIC_ONLY,
 } from './auth-types';
@@ -32,15 +31,6 @@ const routeStructure = [
     pageName: 'Subscribers',
     auth: ADMIN,
   },
-  // {
-  //   path: '/dashboard',
-  //   pageName: 'DashboardLayout',
-  //   childRoutes: [
-  //     { path: 'admin', pageName: 'AdminPage', auth: ADMIN },
-  //     // { path: 'admin/products', pageName: 'ProductPanelPage', auth: ADMIN },
-  //     // { path: 'admin/users', pageName: 'UserPanelPage', auth: ADMIN },
-  //   ],
-  // },
 ];
 
 export default routeStructure;

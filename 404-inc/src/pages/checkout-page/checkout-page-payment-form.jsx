@@ -2,8 +2,8 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import StyledCheckTypography from './styled-text';
-import StyledCheckTextfield from './styled-text-field';
+import StyledCheckTypography from '../../components/texts/styled-checkout-text';
+import StyledCheckTextfield from '../../components/textfields/styled-checkout-text-field';
 
 const CheckoutPagePaymentForm = () => (
   <>

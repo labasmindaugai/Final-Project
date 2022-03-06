@@ -8,9 +8,6 @@ const { uploadSingleMiddleware } = require('../middlewares/upload-middleware');
 
 const router = express.Router();
 
-// middlewares
-// router.use(authMiddleware, adminMiddleware);
-
 router.get('/', getSections);
 router.post('/create', authMiddleware, adminMiddleware, uploadSingleMiddleware('files'), createSection);
 router.patch('/update', authMiddleware, adminMiddleware,  uploadSingleMiddleware('files'), updateSection);

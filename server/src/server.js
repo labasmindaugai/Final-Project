@@ -4,7 +4,6 @@ const Mongoose = require('mongoose');
 require('dotenv').config();
 const cors = require('cors');
 const authRouter = require('./routes/auth-router');
-// const userRouter = require('./routes/user-router');
 const sectionRouter = require('./routes/section-router');
 const subscriberRouter = require('./routes/subscriber-router');
 
@@ -14,19 +13,15 @@ const { SERVER_PORT, DB_CONNECTION, SERVER_DOMAIN, PUBLIC_PATH } = process.env;
 
 const corsOptions = {
   origin: 'http://localhost:3000',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  optionsSuccessStatus: 200
 }
 
 
-// Middlewares
 server.use(morgan('tiny'));
 server.use(cors(corsOptions));
 server.use(express.json());
 server.use(express.static(PUBLIC_PATH));
-
-// Response handlers
 server.use('/api/auth', authRouter);
-// server.use('/api/users', userRouter);
 server.use('/api/sections', sectionRouter);
 server.use('/api/subscriber', subscriberRouter);
 

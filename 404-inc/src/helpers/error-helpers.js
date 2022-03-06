@@ -9,5 +9,3 @@ export const dataFetchError = (err) => {
 };
 
 export default dataFetchError;
-// eslint requires default export, when file has one helper,
-// when adding more helpers, it has to be changed to export without "default".
