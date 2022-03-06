@@ -1,12 +1,10 @@
-/* eslint-disable react/button-has-type */
-/* eslint-disable no-console, no-control-regex */
 import React, { useEffect, useState } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 import Hero from './hero-page';
-import Store from './store';
-import Features from './features';
-import Comments from './comments';
-import Newsletter from './newsletter';
+import Store from './home-store';
+import Features from './home-features';
+import Games from './home-games';
+import Newsletter from './home-newsletter';
 import Navbar from '../../components/partials/navbar/index';
 import SectionService from '../../services/section-service';
 
@@ -24,9 +22,8 @@ const Fullpage = () => {
   }, []);
   return (
     <ReactFullpage
-    // fullpage options
       licenseKey="B85265C5-655F4BAE-861A6A32-01A5782F"
-      scrollingSpeed={1000} /* Options here */
+      scrollingSpeed={1000}
 
     // eslint-disable-next-line react/jsx-props-no-multi-spaces
       render={({ fullpageApi }) => (
@@ -34,8 +31,8 @@ const Fullpage = () => {
           <Navbar handleMoveSection={(page) => fullpageApi.moveTo(page)} />
           <Hero handleMoveSection={() => fullpageApi.moveTo('2')} />
           <Store loading={loading} sections={_sections} />
-          <Features />
-          <Comments />
+          <Features loading={loading} sections={_sections} />
+          <Games loading={loading} sections={_sections} />
           <Newsletter handleMoveSection={() => fullpageApi.moveTo('1')} />
         </ReactFullpage.Wrapper>
       )}

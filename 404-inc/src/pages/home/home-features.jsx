@@ -3,9 +3,8 @@ import {
 } from '@mui/material';
 import React from 'react';
 import NeutralBackground from '../../components/containers/neutral-background';
-import Male from '../../components/images/male.jpg';
 
-const Features = () => (
+const Features = ({ loading, sections }) => (
   <Box
     className="section"
   >
@@ -41,7 +40,7 @@ const Features = () => (
             },
           }}
           >
-            <img src={Male} alt="Hoodie" width="100%" />
+            <img src={sections ? sections[1].image : 'dummy text'} alt="Console" width="100%" />
           </Box>
         </Grid>
         <Grid
@@ -57,32 +56,25 @@ const Features = () => (
             textAlign: 'center',
           }}
         >
-          <Typography
-            variant="h6"
-            component="h3"
-            sx={{
-              // pl: '80px',
-              display: 'flex',
-              color: '#FFF',
-              fontSize: {
-                xs: '2.5vw',
-                sm: '2.2vw',
-                md: '1.3vw',
-                lg: '0.9vw',
-              },
-              letterSpacing: '0.5px',
-            }}
-          >
-            One might say this generation ended when the Super
-            NES was officially discontinued in 2003 (having lasted a
-            few years longer in Japan than America and elsewhere).
-            But the Mega Drive, officially discontinued in 1998, has
-            had an active afterlife; licensed games by third party
-            developers have been sporadically released into The New 10s,
-            and licensed Mega Drive units with built in games are still being
-            sold today. The Super NES would later see similar plug-and-play
-            units being released, if only for a limited time.
-          </Typography>
+          { !loading ? (
+            <Typography
+              variant="h6"
+              component="h3"
+              sx={{
+                display: 'flex',
+                color: '#FFF',
+                fontSize: {
+                  xs: '2.5vw',
+                  sm: '2.2vw',
+                  md: '1.3vw',
+                  lg: '0.9vw',
+                },
+                letterSpacing: '0.5px',
+              }}
+            >
+              { sections ? sections[1].description : 'dummy text'}
+            </Typography>
+          ) : null}
         </Grid>
       </Grid>
     </NeutralBackground>

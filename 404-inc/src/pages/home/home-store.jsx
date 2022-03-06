@@ -3,7 +3,6 @@ import {
 } from '@mui/material';
 import React from 'react';
 import NeutralBackground from '../../components/containers/neutral-background';
-import Hoodie from '../../components/images/hoodie.jfif';
 import pulse from '../../components/animations/pulse';
 import LightButton from '../../components/buttons/button';
 import BasicModal from '../../components/modals/modal';
@@ -18,6 +17,7 @@ const Store = ({ loading, sections }) => {
         justifyContent: 'center',
       }}
       >
+        <br />
         <Grid container spacing={3} mt="10px">
           <Grid
             item
@@ -55,7 +55,7 @@ const Store = ({ loading, sections }) => {
                     letterSpacing: '2px',
                   }}
                 >
-                  { sections ? sections[0].title : 'WHAT IS 127.0.0.1?'}
+                  { sections ? sections[0].title : 'dummy text'}
                 </Typography>
               ) : null}
             </Box>
@@ -87,27 +87,24 @@ const Store = ({ loading, sections }) => {
               mt: '10px',
             }}
             >
-              <Typography
-                variant="h6"
-                component="h3"
-                sx={{
-                  color: 'white',
-                  fontSize: {
-                    xs: '2.5vw',
-                    sm: '2.2vw',
-                    md: '1vw',
-                    lg: '0.9vw',
-                  },
-                  letterSpacing: '0.5px',
-                }}
-              >
-                The 8-bit era, or Fourth Generation, kicked off with the release of
-                the NEC/Hudson Soft console TurboGrafx-16 (or in Japan, the PC Engine)
-                in 1987. Emerging as an unexpected viable competitor to Nintendo,
-                the PC Engine/TurboGrafx ended up being the first system to outsell
-                the Famicom in Japan, maintaining strong levels of success there
-                and spurring Nintendo into action, so here our take on this legendary system
-              </Typography>
+              { !loading ? (
+                <Typography
+                  variant="h6"
+                  component="h3"
+                  sx={{
+                    color: 'white',
+                    fontSize: {
+                      xs: '2.5vw',
+                      sm: '2.2vw',
+                      md: '1vw',
+                      lg: '0.9vw',
+                    },
+                    letterSpacing: '0.5px',
+                  }}
+                >
+                  { sections ? sections[0].description : 'dummy text'}
+                </Typography>
+              ) : null}
             </Box>
           </Grid>
           <Grid item xs={12} lg={5}>
@@ -132,8 +129,8 @@ const Store = ({ loading, sections }) => {
               }}
               >
                 <img
-                  src={sections ? sections[0].image : Hoodie}
-                  alt="Hoodie"
+                  src={sections ? sections[0].image : 'dummy text'}
+                  alt="Console"
                   width="100%"
                 />
               </Box>

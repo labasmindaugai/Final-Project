@@ -4,28 +4,12 @@ import {
 import React from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-// import { makeStyles } from '@mui/styles';
 import StyledTextField from '../../components/textfields/styled-textfield';
 import LightButton from '../../components/buttons/button';
 import NewsBackground from '../../components/containers/news-background';
 import Footer from '../../components/partials/footer/footer';
 import ScrollButtonUp from '../../components/buttons/scroll-button-up';
 import SubscriberService from '../../services/subscriber-service';
-
-// const useStyles = makeStyles({
-//   root: {
-//     '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-//       border: 'none',
-//     },
-//     '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-//       borderColor: 'red',
-//     },
-//     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-//       border: '1px solid',
-//       borderColor: 'white',
-//     },
-//   },
-// });
 
 const validationSchema = yup.object({
   email: yup.string()
@@ -49,9 +33,6 @@ const Newsletter = ({ handleMoveSection }) => {
     values,
     errors,
     touched,
-    // dirty,
-    // isSubmitting,
-    // isValid,
   } = useFormik({
     initialValues,
     validationSchema,
@@ -177,7 +158,6 @@ const Newsletter = ({ handleMoveSection }) => {
                 helperText={touched.email && errors.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                // className={classes.root}
                 size="small"
                 sx={{ textShadow: 'none', fontSize: { xs: '10px', md: '20px' } }}
               />
