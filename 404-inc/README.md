@@ -1,5 +1,9 @@
 # Required programs to run project
 * Node.js version 16 or greater
+* 
+## Browser used
+#       Platform	          Version	       Release Date
+*   Chrome on Windows	    99.0.4844.51	    2022-03-01
 
 # Client side
 ## Navigate to client side
@@ -28,3 +32,4 @@ $ npm i
 
 ## Launch server
 $ npm start
+
