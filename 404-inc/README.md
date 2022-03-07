@@ -4,8 +4,10 @@
 
 # Browser used
 
-*Platform:  Chrome on Windows	    
+*Platform:  Chrome on Windows
+
 *Version: 99.0.4844.51
+
 *Release Date: 2022-03-01
 
 # Client side
