@@ -6,7 +6,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import { Box, IconButton, TablePagination } from '@mui/material';
+import {
+  IconButton, TableContainer, TablePagination,
+} from '@mui/material';
 import SubscriberService from '../../services/subscriber-service';
 
 const Subscribers = () => {
@@ -47,9 +49,8 @@ const Subscribers = () => {
   };
 
   return (
-    <Box>
+    <TableContainer>
       <Table
-        size="small"
         sx={{ alignItems: 'center' }}
       >
         <TableHead>
@@ -90,7 +91,7 @@ const Subscribers = () => {
         onRowsPerPageChange={handleChangeRowsPerPage}
         labelRowsPerPage="Subscribers per page:"
       />
-    </Box>
+    </TableContainer>
   );
 };
 export default Subscribers;

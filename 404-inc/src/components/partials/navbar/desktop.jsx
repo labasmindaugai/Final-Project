@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Button } from '@mui/material';
-import Logo from './logo';
 
 const Desktop = ({ breakpoint, handleMoveSection }) => {
   const desktopStyles = {
@@ -22,9 +21,7 @@ const Desktop = ({ breakpoint, handleMoveSection }) => {
         position: 'absolute',
         left: '60px',
       }}
-      >
-        <Logo height="60px" />
-      </Box>
+      />
       <Box sx={{
         display: 'flex',
         flexGrow: 1,

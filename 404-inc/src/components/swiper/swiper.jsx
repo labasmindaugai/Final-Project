@@ -3,10 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
-import Gera from '../images/1.gif';
-import Geral from '../images/2.gif';
-import Gerall from '../images/3.gif';
-import Geralll from '../images/4.gif';
+import Img1 from '../images/1.gif';
+import Img2 from '../images/2.gif';
+import Img3 from '../images/3.gif';
+import Img4 from '../images/4.gif';
 
 SwiperCore.use([Navigation]);
 
@@ -35,13 +35,13 @@ const SwiperGood = () => (
             height: '100%',
             objectFit: 'cover',
           }}
-          src={Gera}
+          src={Img1}
           alt="g1"
         />
       </SwiperSlide>
       <SwiperSlide className="swiper-slide">
         <img
-          src={Geral}
+          src={Img2}
           alt="g2"
           style={{
             width: '100%',
@@ -52,7 +52,7 @@ const SwiperGood = () => (
       </SwiperSlide>
       <SwiperSlide className="swiper-slide">
         <img
-          src={Gerall}
+          src={Img3}
           alt="g2"
           style={{
             width: '100%',
@@ -63,7 +63,7 @@ const SwiperGood = () => (
       </SwiperSlide>
       <SwiperSlide className="swiper-slide">
         <img
-          src={Geralll}
+          src={Img4}
           alt="g3"
           style={{
             width: '100%',

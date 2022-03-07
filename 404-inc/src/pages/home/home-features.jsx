@@ -16,6 +16,7 @@ const Features = ({ loading, sections }) => (
     >
       <Grid
         container
+        spacing={3}
       >
         <Grid
           item
@@ -23,20 +24,21 @@ const Features = ({ loading, sections }) => (
           lg={6}
           sx={{
             display: 'flex',
+            flexDirection: 'column',
             justifyContent: 'center',
+            alignItems: 'center',
+            pb: '10px',
           }}
         >
           <Box sx={{
-            lineHeight: '0',
             border: '4px solid #ff5edb',
             boxShadow: '0px 0px 20px #ff5edb',
-            mb: '20px',
+            lineHeight: '0px',
             width: {
               xs: '80%',
               sm: '65%',
-              md: '35%',
-              lg: '90%',
-
+              md: '45%',
+              lg: '80%',
             },
           }}
           >
@@ -51,30 +53,35 @@ const Features = ({ loading, sections }) => (
           lg={6}
           sx={{
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            alignContent: 'center',
             textAlign: 'center',
           }}
         >
-          { !loading ? (
-            <Typography
-              variant="h6"
-              component="h3"
-              sx={{
-                display: 'flex',
-                color: '#FFF',
-                fontSize: {
-                  xs: '2.5vw',
-                  sm: '2.2vw',
-                  md: '1.3vw',
-                  lg: '0.9vw',
-                },
-                letterSpacing: '0.5px',
-              }}
-            >
-              { sections ? sections[1].description : 'dummy text'}
-            </Typography>
-          ) : null}
+          <Box sx={{
+            width: { xs: '86%', md: '46%' },
+            mt: '10px',
+          }}
+          >
+            { !loading ? (
+              <Typography
+                variant="h6"
+                component="h3"
+                sx={{
+                  color: '#FFF',
+                  fontSize: {
+                    xs: '2.5vw',
+                    sm: '2.2vw',
+                    md: '1.3vw',
+                    lg: '0.9vw',
+                  },
+                  letterSpacing: '0.5px',
+                }}
+              >
+                { sections ? sections[1].description : 'dummy text'}
+              </Typography>
+            ) : null}
+          </Box>
         </Grid>
       </Grid>
     </NeutralBackground>

@@ -123,7 +123,7 @@ const Newsletter = ({ handleMoveSection }) => {
                 sx={{
                   fontSize: {
                     xs: '2.3vw',
-                    sm: '1.5vw',
+                    sm: '1.8vw',
                     md: '1vw',
                     lg: '1vw',
                   },
